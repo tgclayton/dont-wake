@@ -56,14 +56,18 @@ export default function App() {
       {/* <button onClick={() => getNewTargetNum()}>Change Target</button> */}
       {/* <button onClick={() => incrementCount(count)}>Increment Count</button> */}
       <br /><br />
-      <div style = {{height: '250px', width: '250px', display: 'flex'}}>
-        <img id='alarm-icon' className='alarm-image'
-          src={AlarmImage}
-          alt='Alarm Clock Icon'
-          onMouseDown={() => incrementCount(count)}
-        />
+      <div style={{ height: '60%'}}>
+        <div style={{ height: '250px', width: '250px', border: '1pt solid black', textAlign: 'center' }}>
+          <img id='alarm-icon' className='alarm-image'
+            src={AlarmImage}
+            alt='Alarm Clock Icon'
+            onMouseDown={() => incrementCount(count)}
+          />
+        </div>
       </div>
-      <p>{gameOver}</p>
+      <div style={{ height: '40%'}}>
+        <p>{gameOver}</p>
+      </div>
     </div>
   );
 }
