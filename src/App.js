@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Counter from './components/Counter'
-import AlarmImage from './alarm.jpg'
+import AlarmImage from './alarm_clock.png'
 import { alarmShrink } from './components/animations'
 
 export default function App() {
   const [targetNum, newTarget] = useState(Math.floor(Math.random() * 10) + 1)
   const [count, newCount] = useState(0)
   const [gameOver, setGameOver] = useState(null)
- 
+
   // useEffect(() => {
   //   console.log('useffect occurred')
   //   checkTargetReached(targetNum, count)
@@ -33,14 +33,14 @@ export default function App() {
 
   function incrementCount(count) {
     const alarmIcon = document.getElementById('alarm-icon')
-    alarmIcon.animate(alarmShrink, 250)
+    alarmIcon.animate(alarmShrink, 150)
     ++count
     newCount(count)
     checkTargetReached(targetNum, count)
   }
 
-  function checkTargetReached (target, count) {
-    if(count === target){
+  function checkTargetReached(target, count) {
+    if (count === target) {
       setGameOver('You Lose!')
       getNewTargetNum()
       newCount(0)
@@ -52,16 +52,18 @@ export default function App() {
   return (
     <div className="App">
       {/* <Counter target={targetNum} /> */}
-      <p>Count: {count}</p>
-      <p>{gameOver}</p>
+      {/* <p>Count: {count}</p> */}
       {/* <button onClick={() => getNewTargetNum()}>Change Target</button> */}
       {/* <button onClick={() => incrementCount(count)}>Increment Count</button> */}
-      <br/><br/>
-      <img id = 'alarm-icon' className = 'alarm-image'
-       src = {AlarmImage} 
-       alt ='Alarm Clock Icon'
-       onMouseDown={() => incrementCount(count)}
-       />
+      <br /><br />
+      <div style = {{height: '300px', width: '300px', display: 'inline-block', border: '3pt solid black'}}>
+        <img id='alarm-icon' className='alarm-image'
+          src={AlarmImage}
+          alt='Alarm Clock Icon'
+          onMouseDown={() => incrementCount(count)}
+        />
+      </div>
+      <p>{gameOver}</p>
     </div>
   );
 }
