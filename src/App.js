@@ -41,7 +41,7 @@ export default function App() {
 
   function checkTargetReached(target, count) {
     if (count === target) {
-      setGameOver('You Lose!')
+      setGameOver('GO BACK TO BED!')
       getNewTargetNum()
       newCount(0)
     } else {
@@ -50,13 +50,13 @@ export default function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App flex">
       {/* <Counter target={targetNum} /> */}
       {/* <p>Count: {count}</p> */}
       {/* <button onClick={() => getNewTargetNum()}>Change Target</button> */}
       {/* <button onClick={() => incrementCount(count)}>Increment Count</button> */}
       <br /><br />
-      <div style = {{height: '300px', width: '300px', display: 'inline-block', border: '3pt solid black'}}>
+      <div style = {{height: '250px', width: '250px', display: 'flex'}}>
         <img id='alarm-icon' className='alarm-image'
           src={AlarmImage}
           alt='Alarm Clock Icon'

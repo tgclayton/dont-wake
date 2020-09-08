@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  height: 100vh;
+  width: 100vw;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -38,7 +48,7 @@
 }
 
 .alarm-image {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
   /* border: 2pt solid black; */
 }
