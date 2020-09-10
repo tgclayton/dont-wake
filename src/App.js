@@ -3,7 +3,7 @@ import useSound from 'use-sound'
 import alarmSound from './sounds/alarm.mp3'
 import './App.css';
 // import Counter from './components/Counter'
-import AlarmImage from './alarm_clock.png'
+import AlarmImage from './alarm_clock2.png'
 import { alarmShrink } from './components/animations'
 import GameOver from './components/GameOver'
 
@@ -57,7 +57,7 @@ export default function App() {
     }
   }
 
-  const gameOver = isPlaying? <GameOver stop = {stop}/>: null 
+  const gameOver = isPlaying ? <GameOver stop={stop} /> : null
 
   return (
     <div className="App flex">
@@ -66,7 +66,7 @@ export default function App() {
       {/* <button onClick={() => getNewTargetNum()}>Change Target</button> */}
       {/* <button onClick={() => incrementCount(count)}>Increment Count</button> */}
       <br /><br />
-      <div style={{ height: '60%' }}>
+      <div className = 'flex' style={{ height: '60%' }}>
         <div style={{ height: '250px', width: '250px', textAlign: 'center' }}>
           <img id='alarm-icon' className='alarm-image'
             src={AlarmImage}
@@ -75,8 +75,8 @@ export default function App() {
           />
         </div>
       </div>
-      <div style={{ height: '40%' }}>
-        <p>{gameOver}</p>
+      <div style={{ height: '40%', width: '100%' }}>
+        {gameOver}
       </div>
     </div>
   );
