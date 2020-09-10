@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useSound from 'use-sound'
-import alarmSound from './sounds/short-alarm.mp3'
+import alarmSound from './sounds/alarm.mp3'
 import './App.css';
 // import Counter from './components/Counter'
 import AlarmImage from './alarm_clock.png'
@@ -57,7 +57,7 @@ export default function App() {
     }
   }
 
-  const gameOver = isPlaying? <GameOver/>: null 
+  const gameOver = isPlaying? <GameOver stop = {stop}/>: null 
 
   return (
     <div className="App flex">
