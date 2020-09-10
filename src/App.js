@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState }from 'react';
 import './App.css';
-import Counter from './components/Counter'
+// import Counter from './components/Counter'
 import AlarmImage from './alarm_clock.png'
 import { alarmShrink } from './components/animations'
 
