@@ -10,7 +10,7 @@ export default function App() {
   const [targetNum, newTarget] = useState(Math.floor(Math.random() * 10) + 1)
   const [count, newCount] = useState(0)
   const [gameOver, setGameOver] = useState(null)
-  const [playAlarm] = useSound(alarmSound)
+  const [playAlarm, {stop, isPlaying}] = useSound(alarmSound)
 
   // useEffect(() => {
   //   console.log('useffect occurred')
@@ -61,7 +61,7 @@ export default function App() {
       {/* <button onClick={() => incrementCount(count)}>Increment Count</button> */}
       <br /><br />
       <div style={{ height: '60%'}}>
-        <div style={{ height: '250px', width: '250px', border: '1pt solid black', textAlign: 'center' }}>
+        <div style={{ height: '250px', width: '250px', textAlign: 'center' }}>
           <img id='alarm-icon' className='alarm-image'
             src={AlarmImage}
             alt='Alarm Clock Icon'
