@@ -1,4 +1,4 @@
-import React, { useState }from 'react';
+import React, { useState } from 'react';
 import useSound from 'use-sound'
 import alarmSound from './sounds/short-alarm.mp3'
 import './App.css';
@@ -9,8 +9,8 @@ import { alarmShrink } from './components/animations'
 export default function App() {
   const [targetNum, newTarget] = useState(Math.floor(Math.random() * 10) + 1)
   const [count, newCount] = useState(0)
-  const [gameOver, setGameOver] = useState(null)
-  const [playAlarm] = useSound(alarmSound)
+  // const [gameOver, setGameOver] = useState(null)
+  const [playAlarm, { stop, isPlaying }] = useSound(alarmSound)
 
   // useEffect(() => {
   //   console.log('useffect occurred')
@@ -35,6 +35,9 @@ export default function App() {
   }
 
   function incrementCount(count) {
+    if (isPlaying) {
+      stop()
+    }
     const alarmIcon = document.getElementById('alarm-icon')
     alarmIcon.animate(alarmShrink, 150)
     ++count
@@ -44,13 +47,20 @@ export default function App() {
 
   function checkTargetReached(target, count) {
     if (count === target) {
-      setGameOver('GO BACK TO BED!')
+      // setGameOver('GO BACK TO BED!')
       playAlarm()
       getNewTargetNum()
       newCount(0)
     } else {
-      setGameOver(null)
+      // setGameOver(null)
     }
+  }
+
+  let message
+  if (isPlaying) {
+    message = "Game Over"
+  } else {
+    message = null
   }
 
   return (
@@ -60,7 +70,7 @@ export default function App() {
       {/* <button onClick={() => getNewTargetNum()}>Change Target</button> */}
       {/* <button onClick={() => incrementCount(count)}>Increment Count</button> */}
       <br /><br />
-      <div style={{ height: '60%'}}>
+      <div style={{ height: '60%' }}>
         <div style={{ height: '250px', width: '250px', textAlign: 'center' }}>
           <img id='alarm-icon' className='alarm-image'
             src={AlarmImage}
@@ -69,8 +79,8 @@ export default function App() {
           />
         </div>
       </div>
-      <div style={{ height: '40%'}}>
-        <p>{gameOver}</p>
+      <div style={{ height: '40%' }}>
+        <p>{message}</p>
       </div>
     </div>
   );
