@@ -5,6 +5,7 @@ import './App.css';
 // import Counter from './components/Counter'
 import AlarmImage from './alarm_clock.png'
 import { alarmShrink } from './components/animations'
+import GameOver from './components/GameOver'
 
 export default function App() {
   const [targetNum, newTarget] = useState(Math.floor(Math.random() * 10) + 1)
@@ -56,12 +57,7 @@ export default function App() {
     }
   }
 
-  let message
-  if (isPlaying) {
-    message = "Game Over"
-  } else {
-    message = null
-  }
+  const gameOver = isPlaying? <GameOver/>: null 
 
   return (
     <div className="App flex">
@@ -80,7 +76,7 @@ export default function App() {
         </div>
       </div>
       <div style={{ height: '40%' }}>
-        <p>{message}</p>
+        <p>{gameOver}</p>
       </div>
     </div>
   );
