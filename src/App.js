@@ -1,4 +1,6 @@
 import React, { useState }from 'react';
+import useSound from 'use-sound'
+import alarmSound from './sounds/alarm.mp3'
 import './App.css';
 // import Counter from './components/Counter'
 import AlarmImage from './alarm_clock.png'
@@ -8,6 +10,7 @@ export default function App() {
   const [targetNum, newTarget] = useState(Math.floor(Math.random() * 10) + 1)
   const [count, newCount] = useState(0)
   const [gameOver, setGameOver] = useState(null)
+  const [playAlarm] = useSound(alarmSound)
 
   // useEffect(() => {
   //   console.log('useffect occurred')
@@ -42,6 +45,7 @@ export default function App() {
   function checkTargetReached(target, count) {
     if (count === target) {
       setGameOver('GO BACK TO BED!')
+      playAlarm()
       getNewTargetNum()
       newCount(0)
     } else {
